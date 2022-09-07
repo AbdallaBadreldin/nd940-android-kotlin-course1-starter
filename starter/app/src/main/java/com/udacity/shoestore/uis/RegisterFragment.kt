@@ -1,4 +1,6 @@
 package com.udacity.shoestore.uis
 
-class RegisterFragment {
+import androidx.fragment.app.Fragment
+
+class RegisterFragment : Fragment(){
 }

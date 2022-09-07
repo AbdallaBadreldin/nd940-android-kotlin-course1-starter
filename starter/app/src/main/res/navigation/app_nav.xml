@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav"
+    android:label="@string/app_name"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.udacity.shoestore.uis.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/login_fragment" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.udacity.shoestore.uis.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/register_fragment" />
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.udacity.shoestore.uis.WelcomeFragment"
+        android:label="WelcomeFragment"
+        tools:layout="@layout/welcome_fragment" />
+    <fragment
+        android:id="@+id/instructionFragment"
+        android:name="com.udacity.shoestore.uis.InstructionFragment"
+        android:label="InstructionFragment"
+        tools:layout="@layout/instruction_fragment" />
+    <fragment
+        android:id="@+id/shoeDetailsFragment"
+        android:name="com.udacity.shoestore.uis.ShoeDetailsFragment"
+        android:label="ShoeDetailsFragment"
+        tools:layout="@layout/show_details_fragment" />
+    <fragment
+        android:id="@+id/shoeAddFragment"
+        android:name="com.udacity.shoestore.uis.ShoeAddFragment"
+        android:label="ShoeAddFragment"
+        tools:layout="@layout/shoe_add_fragment" />
+
+</navigation>
