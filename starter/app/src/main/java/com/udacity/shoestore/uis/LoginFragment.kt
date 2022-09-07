@@ -18,10 +18,14 @@ class LoginFragment : Fragment() {
     ): View {
         binding = LoginFragmentBinding.inflate(inflater, container, false)
 
-        binding.buttonLogin.setOnClickListener{
-        findNavController().navigate()
+        binding.textViewCreateNewAccount.setOnClickListener {
+            findNavController().navigate(R.id.goto_registerFragment_from_loginFragment)
         }
-        return binding.root
 
+        binding.buttonLogin.setOnClickListener{
+            findNavController().navigate(R.id.goto_welcomeScreen_from_loginFragment)
+        }
+
+        return binding.root
     }
 }
