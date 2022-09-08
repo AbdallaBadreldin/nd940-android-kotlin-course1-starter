@@ -74,9 +74,10 @@ class ShoeDetailsFragment : Fragment() {
         linearLayout.addView(text3)
         linearLayout.addView(text4)
 
-        val linearLayoutParams = linearLayout.layoutParams as LinearLayout.LayoutParams
-        linearLayoutParams.setMargins(16, 0, 16, 16)
-        linearLayout.layoutParams = params
+//        val linearLayoutParams = linearLayout.layoutParams as LinearLayout.LayoutParams
+//        linearLayoutParams.setMargins(16, 0, 16, 16)
+//        linearLayout.layoutParams = params
+//        linearLayout.layoutParams = linearLayoutParams
 
         return linearLayout
     }
