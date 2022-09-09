@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
@@ -22,6 +23,15 @@ class InstructionFragment : Fragment() {
             findNavController().navigate(R.id.goto_shoeDetailsFragment_from_instructionFragment)
         }
 
+        requireActivity()
+            .onBackPressedDispatcher
+            .addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    findNavController().navigate(R.id.goto_welcomeFragment_from_instructionFragment)
+                }
+            }
+            )
         return binding.root
     }
+
 }

@@ -1,12 +1,13 @@
 package com.udacity.shoestore.uis
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
@@ -15,7 +16,7 @@ import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.viewmodels.AppViewModel
 
 
-class ShoeDetailsFragment : Fragment() {
+class ShoeDetailsFragment : Fragment(), MenuProvider {
     lateinit var binding: ShowDetailsFragmentBinding
     lateinit var viewModel: AppViewModel
     override fun onCreateView(
@@ -37,6 +38,27 @@ class ShoeDetailsFragment : Fragment() {
         return binding.root
     }
 
+    /*   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+           super.onViewCreated(view, savedInstanceState)
+           val menuHost: MenuHost = requireActivity()
+           menuHost.addMenuProvider(object : MenuProvider {
+               override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                   // Add menu items here
+                   menuInflater.inflate(R.menu.app_menu, menu)
+               }
+
+               override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                   // Handle the menu selection
+                   return when (menuItem.itemId) {
+                       R.id.signout -> {
+                           findNavController().navigate(R.id.goto_loginFragment_from_shoeDetailFragment)
+                           true
+                       }
+                       else -> false
+                   }
+               }
+           }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+       }*/
     private fun renderListToLayout(listOfShoes: MutableList<Shoe>) {
         for (shoe in listOfShoes) {
             binding.linearLayout.addView(createLayout(shoe))
@@ -74,15 +96,33 @@ class ShoeDetailsFragment : Fragment() {
         linearLayout.addView(text3)
         linearLayout.addView(text4)
 
-//        val linearLayoutParams = linearLayout.layoutParams as LinearLayout.LayoutParams
+        //at first it worked but after adding data binding it stopped working
+
+//        val linearLayoutParams = ViewGroup.LayoutParams(0,0) as LinearLayout.LayoutParams
 //        linearLayoutParams.setMargins(16, 0, 16, 16)
 //        linearLayout.layoutParams = params
-//        linearLayout.layoutParams = linearLayoutParams
 
         return linearLayout
     }
 
     private fun clearLinearLayout() {
         binding.linearLayout.removeAllViews()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
+    }
+
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.app_menu, menu)
+    }
+
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        if (menuItem.itemId == R.id.signout) {
+            findNavController().navigate(R.id.goto_loginFragment_from_shoeDetailFragment)
+            return true
+        } else return false
     }
 }
