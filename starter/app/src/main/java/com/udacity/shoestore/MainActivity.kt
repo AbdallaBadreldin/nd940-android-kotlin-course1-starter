@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.udacity.shoestore.databinding.ActivityMainBinding
 import timber.log.Timber
 
-
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
