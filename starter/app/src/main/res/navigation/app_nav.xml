@@ -47,7 +47,7 @@
         <action
             android:id="@+id/goto_instructionFragment_from_welcomeFragment"
             app:destination="@id/instructionFragment"
-            app:popUpTo="@id/instructionFragment"
+            app:popUpTo="@id/welcomeFragment"
             app:popUpToInclusive="true"
             app:launchSingleTop="true"
              />
@@ -63,6 +63,12 @@
             app:popUpTo="@id/instructionFragment"
             app:launchSingleTop="true"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/goto_welcomeFragment_from_instructionFragment"
+            app:destination="@id/welcomeFragment"
+            app:popUpTo="@id/instructionFragment"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true" />
     </fragment>
     <fragment
         android:id="@+id/shoeDetailsFragment"
@@ -72,6 +78,12 @@
         <action
             android:id="@+id/goto_shoeAddFragment_from_shoeDetailsFragment"
             app:destination="@id/shoeAddFragment" />
+        <action
+            android:id="@+id/goto_loginFragment_from_shoeDetailFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/shoeDetailsFragment"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true" />
     </fragment>
     <fragment
         android:id="@+id/shoeAddFragment"
