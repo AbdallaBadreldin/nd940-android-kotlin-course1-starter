@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- ConstraintLayout-->
+<!-- ConstraintLayout to hold fab button and scroll view with linearlayout inside-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name">
 
-        <!-- LinearLayout-->
+        <!-- LinearLayout to show added elements-->
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
@@ -24,6 +24,7 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </ScrollView>
+<!--    fab button to go to adding shoes-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
